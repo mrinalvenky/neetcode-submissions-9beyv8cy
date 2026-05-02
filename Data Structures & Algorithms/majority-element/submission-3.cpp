@@ -1,12 +1,12 @@
 class Solution {
 public:
-    int removeElement(vector<int>& nums, int val) {
-        int k = 0;
+    int majorityElement(vector<int>& nums) {
+        int count  = 0;
+        int candidate;
         for (int n: nums) {
-            if (n != val) {
-                nums[k++] = n;
-            }
+            if (count == 0) candidate = n;
+            count += (candidate == n) ? 1 : -1;
         }
-        return k;
+        return candidate;
     }
 };
